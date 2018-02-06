@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	function search(){
+      var txtinput = document.getElementById('input').value;
+      var txtsear = document.getElementById('sear').value;
+	  var radio = document.querySelector('input[name="Sensitive"]:checked').value;
+	  if(radio==1){
+	  	var result = new RegExp(txtsear,"g");
+	  	document.getElementById("showresult").innerHTML = "result for search : " + (txtinput.match(result).length);
+	  }else{
+			var result = new RegExp(txtsear,"gi");
+          	document.getElementById("showresult").innerHTML = "result for serach : " + (txtinput.match(result).length);
+		}
+	}
+</script>
+</head>
+<body>
+	text input: <textarea id="input" rows="4" cols="50">Test test test Test Test test</textarea><br>
+
+	Sensitive Case:<input type="radio" name="Sensitive" value="1" checked>Yes
+    <input type="radio" name="Sensitive" value="0">No<br><br>
+
+	search: <input type="text" name="ans" id="sear">
+
+	<button id="go" onclick="search()">Search</button>
+	<div id="showresult"></div>
+
+</body>
+</html>
+
