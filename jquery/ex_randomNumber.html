@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			getrandom1();
+		});
+		function getrandom1() {
+		    var num1 = Math.floor((Math.random() * 2000) + -1000);
+		    document.getElementById("shownum1").innerHTML = num1;
+		    var num2 = Math.floor((Math.random() * 2000) + -1000);
+		    document.getElementById("shownum2").innerHTML = num2;
+		}
+		function plus(){
+			var num1 = $("#shownum1").html();
+			var num2 = $("#shownum2").html();
+			var result = parseInt(num1) + parseInt(num2);
+			var input = $("#input").val();
+			if (result == input) {
+				$("#check").html("That correct");
+			}
+			else{
+				$("#check").html("That wrong The answer is " + result);
+			}
+		}
+	</script>
+</head>
+	<body>
+		<center>
+			<h1>Ex - Random Number of Answer</h1>
+			<button onclick="getrandom1()" >Random Number</button><br><br>
+			<span id="shownum1"></span> + <span id="shownum2"></span> = <input type="Number" id="input"><br><br>
+			<button onclick="plus()">Send Answer</button><br><br>
+			Result : <span id="check"></span>
+		</center>
+	</body>
+</html>
